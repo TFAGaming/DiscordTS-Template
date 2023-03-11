@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://en.wikipedia.org/wiki/TypeScript">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/1024px-Typescript.svg.png">
+  </a>
+</p>
+
 # DiscordTS-Template
 A very simple Discord bot made with [**TypeScript**](https://www.typescriptlang.org/) & [**discord.js**](https://npmjs.com/package/discord.js) version 14.
 
