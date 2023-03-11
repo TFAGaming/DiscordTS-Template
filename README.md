@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://en.wikipedia.org/wiki/TypeScript">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/1024px-Typescript.svg.png" width="500" height="500">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/1024px-Typescript.svg.png" width="250" height="250">
   </a>
 </p>
 
