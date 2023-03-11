@@ -8,7 +8,7 @@
 A very simple Discord bot made with [**TypeScript**](https://www.typescriptlang.org/) & [**discord.js**](https://npmjs.com/package/discord.js) version 14.
 
 ## Installation
-Install `typescript` (view guide [here](https://www.typescriptlang.org/download)):
+Install `typescript`:
 
 ```sh
 npm i -g typescript
