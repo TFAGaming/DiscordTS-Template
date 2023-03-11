@@ -16,6 +16,8 @@ npm i discord.js@14 discord.js-v14-helper@latest dotenv mongoose ms
 
 > **Note:** The `mongoose` and `ms` are not used in this project, but my library called `discord.js-v14-helper` requires both of them.
 
+Update the file **.env.example** to **.env** and put all the required values ([click here](https://www.npmjs.com/package/dotenv#Usage) for info).
+
 To compile the TypeScript files to JavaScript files, use the command below:
 
 ```sh
