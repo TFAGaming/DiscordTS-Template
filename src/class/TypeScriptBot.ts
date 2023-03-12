@@ -2,12 +2,13 @@ import {
     ActivityType,
     Client,
     Collection,
-    GatewayIntentBits
+    GatewayIntentBits,
+    REST,
+    Routes
 } from "discord.js";
 import {
     readdirSync
 } from 'fs';
-import { ApplicationCommandsRegister } from "discord.js-v14-helper";
 
 export class TypeScriptBot extends Client {
     commands_collection = new Collection<string, object>();
@@ -20,7 +21,7 @@ export class TypeScriptBot extends Client {
             ],
             presence: {
                 activities: [{
-                    name: 'TypeScript Bot',
+                    name: 'Starting up...',
                     type: ActivityType.Playing
                 }]
             }
@@ -68,11 +69,23 @@ export class TypeScriptBot extends Client {
     };
 
     public async deploy_commands() {
-        const registerer = new ApplicationCommandsRegister(process.env.CLIENT_TOKEN, process.env.CLIENT_ID)
-            .setApplicationCommands(this.commands)
-            .setRestVersion(10);
+        const rest = new REST({
+            version: '10'
+        }).setToken(process.env.CLIENT_TOKEN);
 
-        registerer.start().catch(console.error);
+        // Making sure that the ID of the test server is 100% provided or not using 'length' property
+        if (process.env.TEST_SERVER_ID && process.env.TEST_SERVER_ID?.length > 3) {
+            await rest.put(
+                Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.TEST_SERVER_ID), {
+                    body: this.commands
+                }
+            );
+        } else {
+            await rest.put(
+                Routes.applicationCommands(process.env.CLIENT_ID),
+                { body: this.commands }
+            );
+        };
 
         return this;
     };
@@ -87,6 +100,12 @@ export class TypeScriptBot extends Client {
         };
 
         return this;
+    };
+
+    private async restart() {
+        this.destroy();
+
+        this.start();
     };
 
     public async start() {

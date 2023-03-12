@@ -1,8 +1,7 @@
 import { Command } from "../../class/Command";
-import { CommandInteraction, CommandInteractionOptionResolver, SlashCommandBuilder, codeBlock } from "discord.js";
+import { CommandInteraction, CommandInteractionOptionResolver, SlashCommandBuilder, AttachmentBuilder, codeBlock } from "discord.js";
 import { TypeScriptBot } from "../../class/TypeScriptBot";
 import { inspect as util_inspect } from 'util';
-import { TextFileGenerator } from "discord.js-v14-helper";
 
 export default new Command({
     command_data: new SlashCommandBuilder()
@@ -29,25 +28,21 @@ export default new Command({
                 code = code_evaluated;
             };
 
-            const file = new TextFileGenerator(code)
-                .setFileName('output.js')
-                .createFile();
-
             await interaction.editReply({
                 content: `Status: **Success**\nInput: ${codeBlock('js', evaluation_code)}\nOutput:`,
                 files: [
-                    file
+                    new AttachmentBuilder(
+                        Buffer.from(`${code}`, 'utf-8'), { name: 'output.js' }
+                    )
                 ]
             });
         } catch (err) {
-            const file = new TextFileGenerator(err)
-                .setFileName('output.txt')
-                .createFile();
-
             await interaction.editReply({
                 content: `Status: **Fail**\nInput: ${codeBlock('js', evaluation_code)}\nOutput:`,
                 files: [
-                    file
+                    new AttachmentBuilder(
+                        Buffer.from(`${err}`, 'utf-8'), { name: 'output.txt' }
+                    )
                 ]
             });
         };
