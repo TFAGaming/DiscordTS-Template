@@ -17,10 +17,8 @@ npm i -g typescript
 Install all the required dependencies:
 
 ```sh
-npm i discord.js@14 discord.js-v14-helper@latest dotenv mongoose ms
+npm i discord.js@14 dotenv
 ```
-
-> **Note:** The `mongoose` and `ms` are not used in this project, but my library called `discord.js-v14-helper` requires both of them.
 
 Rename the file **.env.example** to **.env** and put all the required values ([click here](https://www.npmjs.com/package/dotenv#Usage) for info).
 
