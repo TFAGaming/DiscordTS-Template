@@ -28,10 +28,10 @@ export class TypeScriptBot extends Client {
         });
     };
 
-    public async load_commands() {
+    public async load_commands(auto_deploy?: boolean) {
         for (const directory of readdirSync('./dist/commands/')) {
             for (const file of readdirSync('./dist/commands/' + directory + '/').filter((f) => f.endsWith('.js'))) {
-                const command = require('../commands/' + directory + '/' + file).default; // Because we are exporting the files with 'default' keyword
+                const command = require('../commands/' + directory + '/' + file).default; // Because we are exporting the files with 'default' keyword.
 
                 if (command.command_data && typeof command.command_data === 'object' && command.command_data?.name) {
                     if (this.commands_collection.has(command.command_data?.name)) {
@@ -51,6 +51,10 @@ export class TypeScriptBot extends Client {
                     continue;
                 };
             };
+        };
+
+        if (auto_deploy) {
+            this.deploy_commands();
         };
 
         return this;
@@ -73,7 +77,7 @@ export class TypeScriptBot extends Client {
             version: '10'
         }).setToken(process.env.CLIENT_TOKEN);
 
-        // Making sure that the ID of the test server is 100% provided or not using 'length' property
+        // Making sure that the ID of the test server is 100% provided or not by using 'length' property.
         if (process.env.TEST_SERVER_ID && process.env.TEST_SERVER_ID?.length > 3) {
             await rest.put(
                 Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.TEST_SERVER_ID), {
@@ -90,7 +94,7 @@ export class TypeScriptBot extends Client {
         return this;
     };
 
-    private async delete_command(command_name: string, auto_deploy?: boolean) {
+    public async delete_command(command_name: string, auto_deploy?: boolean) {
         if (!this.commands_collection.has(command_name)) return;
 
         this.commands_collection.delete(command_name);
@@ -106,6 +110,8 @@ export class TypeScriptBot extends Client {
         this.destroy();
 
         this.start();
+
+        return this;
     };
 
     public async start() {

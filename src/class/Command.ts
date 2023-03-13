@@ -1,7 +1,10 @@
+import { CommandInteraction, CommandInteractionOptionResolver, SlashCommandBuilder } from "discord.js";
+import { TypeScriptBot } from "./TypeScriptBot";
+
 interface CommandOptions {
-    command_data: object,
+    command_data: SlashCommandBuilder | object,
     options_data?: OptionsData,
-    run: (...args: any) => any
+    run: (client: TypeScriptBot, interaction: CommandInteraction, args: CommandInteractionOptionResolver) => any
 };
 
 interface OptionsData {

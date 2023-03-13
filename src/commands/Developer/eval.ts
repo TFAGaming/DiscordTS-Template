@@ -1,6 +1,5 @@
 import { Command } from "../../class/Command";
-import { CommandInteraction, CommandInteractionOptionResolver, SlashCommandBuilder, AttachmentBuilder, codeBlock } from "discord.js";
-import { TypeScriptBot } from "../../class/TypeScriptBot";
+import { SlashCommandBuilder, AttachmentBuilder, codeBlock } from "discord.js";
 import { inspect as util_inspect } from 'util';
 
 export default new Command({
@@ -12,7 +11,7 @@ export default new Command({
     options_data: {
         owner_only: true
     },
-    run: async (client: TypeScriptBot, interaction: CommandInteraction, args: CommandInteractionOptionResolver) => {
+    run: async (client, interaction, args) => {
         const evaluation_code = args.getString('code');
 
         await interaction.deferReply();
