@@ -1,5 +1,3 @@
-import { ActivityType } from "discord.js";
-
 export const client_config = {
     activities: [
         {
