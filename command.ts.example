@@ -1,13 +1,12 @@
 import { Command } from "../../class/Command";
-import { CommandInteraction, CommandInteractionOptionResolver, SlashCommandBuilder } from "discord.js";
-import { TypeScriptBot } from "../../class/TypeScriptBot";
+import { SlashCommandBuilder } from "discord.js";
 
 export default new Command({
     command_data: new SlashCommandBuilder()
         .setName()
         .setDescription()
         .toJSON(),
-    run: async (client: TypeScriptBot, interaction: CommandInteraction, args: CommandInteractionOptionResolver) => {
+    run: async (client, interaction, args) => {
         
     }
 });
