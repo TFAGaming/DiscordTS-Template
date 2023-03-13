@@ -5,18 +5,17 @@ export const client_config = {
         {
             name: 'Minecraft',
             type: 0,
-            status: 'online'
+            status: 'Online'
         },
         {
             name: 'Spotify',
             type: 2,
-            status: 'idle'
+            status: 'Idle'
         },
         {
             name: 'YouTube',
             type: 3
         }
     ],
-    twitch_url: 'https://www.twitch.tv/discord/',
-    change_presence_every_ms: 7500
+    twitch_url: 'https://www.twitch.tv/discord/'
 };
