@@ -31,5 +31,19 @@ or, start the old compiled JavaScript files:
 npm run build-start
 ```
 
+## Command example:
+The class [`SlashCommandBuilder`](https://discord.js.org/#/docs/builders/main/class/SlashCommandBuilder) is from the library **@discordjs/builders**.
+
+```ts
+export default new Command({
+    command_data: new SlashCommandBuilder()
+        .toJSON(),
+    options_data: {
+        owner_only?: boolean
+    },
+    run: (client, interaction, args) => { }
+});
+```
+
 ## How it works?
 You can [click here](https://www.geeksforgeeks.org/how-typescript-compilation-works/) to understand how TypeScript compiler works.
