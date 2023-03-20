@@ -19,7 +19,7 @@ Rename the file **.env.example** to **.env** and fill all the required propertie
 > **Warning**
 If you are using repl.it, delete the **.env** file and use **Secrets** instead.
 
-To compile the TypeScript files to JavaScript files, use the command below:
+To compile the TypeScript files to JavaScript files & run the compiled files, use the command below:
 
 ```sh
 npm run build
