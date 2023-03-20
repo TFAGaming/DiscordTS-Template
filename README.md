@@ -2,7 +2,7 @@
 A very simple Discord bot made with [**TypeScript**](https://www.typescriptlang.org/) & [**discord.js**](https://npmjs.com/package/discord.js) version 14.
 
 ## Installation
-Install `typescript`:
+Install `typescript` globally:
 
 ```sh
 npm i -g typescript
@@ -14,7 +14,10 @@ Install all the required dependencies:
 npm i discord.js@14 dotenv
 ```
 
-Rename the file **.env.example** to **.env** and put all the required values ([click here](https://www.npmjs.com/package/dotenv#Usage) for info).
+Rename the file **.env.example** to **.env** and fill all the required properties.
+
+> **Warning**
+If you are using repl.it, delete the **.env** file and use **Secrets** instead.
 
 To compile the TypeScript files to JavaScript files, use the command below:
 
@@ -29,6 +32,4 @@ npm run build-start
 ```
 
 ## How it works?
-When you compile the TS files by using the run script `build`, a directory called **dist** will be created automatically with some JS files. The JS files are having the same working source-codes from the TS files. When it's done from compiling the files, the run script `build-start` will start the JS files.
-
-[Click here](https://www.geeksforgeeks.org/how-typescript-compilation-works/) for more info.
+You can [click here](https://www.geeksforgeeks.org/how-typescript-compilation-works/) to understand how TypeScript compiler works.
